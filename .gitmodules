@@ -1,0 +1,3 @@
+[submodule "Kaju/ThirdParty/SPD"]
+	path = Kaju/ThirdParty/SPD
+	url = https://github.com/gabime/spdlog
