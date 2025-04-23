@@ -1,5 +1,7 @@
 # Prerequisites
 *.d
+*.vcxproj
+*.filters
 *.user
 .vs/
 Binaries/
