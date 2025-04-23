@@ -22,14 +22,20 @@ project "Kaju"
 
 	files
 	{
+		"%{prj.name}/Include/**.h",
 		"%{prj.name}/Source/**.h",
 		"%{prj.name}/Source/**.cpp"
 	}
 
 	includedirs
 	{
+		"%{prj.name}/Include",
 		"%{prj.name}/ThirdParty/SPD/include"
 	}
+
+	-- Enable PCH
+	pchheader "PCH.h"
+	pchsource "%{prj.name}/Source/PCH.cpp"
 
 	filter "system:windows"
 		cppdialect "C++17"

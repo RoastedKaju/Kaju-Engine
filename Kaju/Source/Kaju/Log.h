@@ -1,7 +1,7 @@
 #pragma once
 
 // 1.Standard headers
-#include <memory>
+//#include <memory>
 
 // 2.Third party headers
 #include <spdlog/spdlog.h>
