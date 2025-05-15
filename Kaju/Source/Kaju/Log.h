@@ -5,6 +5,7 @@
 
 // 2.Third party headers
 #include <spdlog/spdlog.h>
+#include <spdlog/fmt/ostr.h>
 
 // 3.Project specific headers
 #include "Core.h"

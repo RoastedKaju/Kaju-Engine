@@ -8,6 +8,7 @@
 #include <map>
 #include <vector>
 #include <unordered_map>
+#include <sstream>
 
 #ifdef KJ_PLATFORM_WINDOWS
 	#include <Windows.h>
