@@ -29,6 +29,7 @@ project "Kaju"
 
 	includedirs
 	{
+		"%{prj.name}/Source",
 		"%{prj.name}/Include",
 		"%{prj.name}/ThirdParty/SPD/include"
 	}
@@ -83,6 +84,7 @@ project "Sandbox"
 
 	includedirs
 	{
+		"Kaju/Include",
 		"Kaju/ThirdParty/SPD/include",
 		"Kaju/Source"
 	}
