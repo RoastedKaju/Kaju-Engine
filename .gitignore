@@ -36,3 +36,4 @@ Intermediate/
 *.exe
 *.out
 *.app
+Sandbox/Sandbox.vcxproj
