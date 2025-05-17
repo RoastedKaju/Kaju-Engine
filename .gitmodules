@@ -1,3 +1,6 @@
 [submodule "Kaju/ThirdParty/SPD"]
 	path = Kaju/ThirdParty/SPD
 	url = https://github.com/gabime/spdlog
+[submodule "Kaju/ThirdParty/GLFW"]
+	path = Kaju/ThirdParty/GLFW
+	url = https://github.com/glfw/glfw.git
