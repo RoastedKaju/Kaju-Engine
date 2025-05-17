@@ -11,6 +11,13 @@ workspace "Kaju"
 
 	outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+	-- Include directories --
+	includedirectories = {}
+	includedirectories["GLFW"] = "Kaju/ThirdParty/GLFW/include"
+
+	-- Include GLFW Premake file --
+	include "Kaju/glfw_premake5.lua"
+
 -- Kaju Project --
 project "Kaju"
 	location "Kaju"
@@ -31,7 +38,14 @@ project "Kaju"
 	{
 		"%{prj.name}/Source",
 		"%{prj.name}/Include",
-		"%{prj.name}/ThirdParty/SPD/include"
+		"%{prj.name}/ThirdParty/SPD/include",
+		"%{includedirectories.GLFW}"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	-- Enable PCH
