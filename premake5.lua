@@ -45,7 +45,8 @@ project "Kaju"
 	links
 	{
 		"GLFW",
-		"opengl32.lib"
+		"opengl32.lib",
+		"dwmapi.lib"
 	}
 
 	-- Enable PCH
@@ -54,7 +55,7 @@ project "Kaju"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
+		--staticruntime "On"
 		systemversion "latest"
 		buildoptions { "/utf-8" }
 
