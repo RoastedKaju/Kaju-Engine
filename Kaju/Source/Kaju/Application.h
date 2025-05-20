@@ -2,16 +2,21 @@
 
 #include "Core.h"
 #include "Events/Event.h"
+#include "Kaju/Window.h"
 
 namespace KJ
 {
-	class KAJU_API Application
+	class Application
 	{
 	public:
-		Application();
-		virtual ~Application();
+		KAJU_API Application();
+		KAJU_API virtual ~Application();
 
-		void Run();
+		KAJU_API void Run();
+
+	private:
+		std::unique_ptr<Window> m_window;
+		bool m_running = true;
 	};
 
 	// To be defined in Client

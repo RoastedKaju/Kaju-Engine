@@ -5,8 +5,8 @@
 #include "Kaju/Log.h"
 
 KJ::Application::Application()
-{
-
+{ 
+	m_window = std::unique_ptr<Window>(Window::Create());
 }
 
 KJ::Application::~Application()
@@ -16,8 +16,8 @@ KJ::Application::~Application()
 
 void KJ::Application::Run()
 {
-	WindowResizeEvent e(1280, 720);
-	KJ_TRACE(e.ToString());
-
-	while (true);
+	while (m_running)
+	{
+		m_window->OnUpdate();
+	}
 }
