@@ -14,6 +14,8 @@ namespace KJ
 
 		KAJU_API void Run();
 
+		void OnEvent(Event& event);
+
 	private:
 		std::unique_ptr<Window> m_window;
 		bool m_running = true;

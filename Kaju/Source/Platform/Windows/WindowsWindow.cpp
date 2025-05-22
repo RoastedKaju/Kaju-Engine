@@ -1,5 +1,8 @@
 #include "PCH.h"
 #include "Kaju/Log.h"
+#include "Kaju/Events/ApplicationEvent.h"
+#include "Kaju/Events/KeyEvent.h"
+#include "Kaju/Events/MouseEvent.h"
 #include "WindowsWindow.h"
 
 namespace KJ
@@ -44,6 +47,18 @@ namespace KJ
 		glfwMakeContextCurrent(m_window);
 		glfwSetWindowUserPointer(m_window, &m_data);
 		SetVsync(true);
+
+		// GLFW callbacks
+		glfwSetWindowSizeCallback(m_window, [](GLFWwindow* window, int width, int height)
+			{
+				WindowData& data = *(static_cast<WindowData*>(glfwGetWindowUserPointer(window)));
+				data.width = width;
+				data.height = height;
+
+				WindowResizeEvent event(width, height);
+				data.eventCallback(event);
+			});
+
 	}
 
 	void WindowsWindow::OnUpdate()
