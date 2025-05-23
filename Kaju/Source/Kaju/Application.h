@@ -2,6 +2,7 @@
 
 #include "Core.h"
 #include "Events/Event.h"
+#include "Events/ApplicationEvent.h"
 #include "Kaju/Window.h"
 
 namespace KJ
@@ -17,6 +18,8 @@ namespace KJ
 		void OnEvent(Event& event);
 
 	private:
+		bool OnWindowClose(WindowCloseEvent& event);
+
 		std::unique_ptr<Window> m_window;
 		bool m_running = true;
 	};

@@ -7,7 +7,7 @@
 KJ::Application::Application()
 { 
 	m_window = std::unique_ptr<Window>(Window::Create());
-	m_window->SetEventCallback(std::bind(&KJ::Application::OnEvent, this, std::placeholders::_1));
+	m_window->SetEventCallback(BIND_EVENT(&KJ::Application::OnEvent, this));
 }
 
 KJ::Application::~Application()
@@ -25,5 +25,14 @@ void KJ::Application::Run()
 
 void KJ::Application::OnEvent(Event& event)
 {
+	EventDispatcher dispatcher(event);
+	dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT(&KJ::Application::OnWindowClose, this));
+
 	KJ_CORE_TRACE(event.ToString());
+}
+
+bool KJ::Application::OnWindowClose(WindowCloseEvent& event)
+{
+	m_running = false;
+	return true;
 }

@@ -34,6 +34,8 @@ namespace KJ
 
 #define EVENT_CLASS_CATEGORY(category) virtual int GetCategoryFlags() const override { return category; }
 
+#define BIND_EVENT(fn, object) std::bind(fn, object, std::placeholders::_1)
+
 	class KAJU_API Event
 	{
 		friend class EventDispatcher;
