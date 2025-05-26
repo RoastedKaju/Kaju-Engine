@@ -72,14 +72,17 @@ project "Kaju"
 
 	filter "configurations:Debug"
 		defines "KJ_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "KJ_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Distribution"
 		defines "KJ_DIST"
+		buildoptions "/MD"
 		optimize "On"
 
 -- Sandbox Project --
@@ -122,12 +125,15 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "KJ_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "KJ_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Distribution"
 		defines "KJ_DIST"
+		buildoptions "/MD"
 		optimize "On"
