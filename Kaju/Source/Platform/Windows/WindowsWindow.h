@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Kaju/Window.h"
-
 #include "GLFW/glfw3.h"
 
 namespace KJ

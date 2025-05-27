@@ -14,9 +14,11 @@ workspace "Kaju"
 	-- Include directories --
 	includedirectories = {}
 	includedirectories["GLFW"] = "Kaju/ThirdParty/GLFW/include"
+	includedirectories["GLAD"] = "Kaju/ThirdParty/GLAD/include"
 
 	-- Include GLFW Premake file --
 	include "Kaju/glfw_premake5.lua"
+	include "Kaju/ThirdParty/GLAD/glad_premake5.lua"
 
 -- Kaju Project --
 project "Kaju"
@@ -39,12 +41,14 @@ project "Kaju"
 		"%{prj.name}/Source",
 		"%{prj.name}/Include",
 		"%{prj.name}/ThirdParty/SPD/include",
-		"%{includedirectories.GLFW}"
+		"%{includedirectories.GLFW}",
+		"%{includedirectories.GLAD}"
 	}
 
 	links
 	{
 		"GLFW",
+		"GLAD",
 		"opengl32.lib",
 		"dwmapi.lib"
 	}
@@ -62,7 +66,8 @@ project "Kaju"
 		defines
 		{
 			"KJ_PLATFORM_WINDOWS",
-			"KJ_BUILD_DLL"
+			"KJ_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands

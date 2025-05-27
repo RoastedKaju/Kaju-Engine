@@ -3,6 +3,7 @@
 #include "Kaju/Events/ApplicationEvent.h"
 #include "Kaju/Events/KeyEvent.h"
 #include "Kaju/Events/MouseEvent.h"
+#include "glad/glad.h"
 #include "WindowsWindow.h"
 
 namespace KJ
@@ -53,6 +54,8 @@ namespace KJ
 
 		m_window = glfwCreateWindow((int)props.width, (int)props.height, props.title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_window);
+		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		KJ_CORE_ASSERT(status, "Failed to Load Glad!");
 		glfwSetWindowUserPointer(m_window, &m_data);
 		SetVsync(true);
 
