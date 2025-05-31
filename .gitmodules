@@ -4,3 +4,6 @@
 [submodule "Kaju/ThirdParty/GLFW"]
 	path = Kaju/ThirdParty/GLFW
 	url = https://github.com/glfw/glfw.git
+[submodule "Kaju/ThirdParty/ImGui"]
+	path = Kaju/ThirdParty/ImGui
+	url = https://github.com/ocornut/imgui
