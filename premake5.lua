@@ -15,10 +15,12 @@ workspace "Kaju"
 	includedirectories = {}
 	includedirectories["GLFW"] = "Kaju/ThirdParty/GLFW/include"
 	includedirectories["GLAD"] = "Kaju/ThirdParty/GLAD/include"
+	includedirectories["ImGui"] = "Kaju/ThirdParty/ImGui"
 
 	-- Include GLFW Premake file --
 	include "Kaju/glfw_premake5.lua"
 	include "Kaju/ThirdParty/GLAD/glad_premake5.lua"
+	include "Kaju/imgui_premake5.lua"
 
 -- Kaju Project --
 project "Kaju"
@@ -42,13 +44,15 @@ project "Kaju"
 		"%{prj.name}/Include",
 		"%{prj.name}/ThirdParty/SPD/include",
 		"%{includedirectories.GLFW}",
-		"%{includedirectories.GLAD}"
+		"%{includedirectories.GLAD}",
+		"%{includedirectories.ImGui}"
 	}
 
 	links
 	{
 		"GLFW",
 		"GLAD",
+		"ImGui",
 		"opengl32.lib",
 		"dwmapi.lib"
 	}
