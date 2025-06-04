@@ -4,8 +4,13 @@
 #include "Kaju/Events/ApplicationEvent.h"
 #include "Kaju/Log.h"
 
+KJ::Application* KJ::Application::s_instance = nullptr;
+
 KJ::Application::Application()
 {
+	KJ_CORE_ASSERT(!m_instance, "Application already exists");
+	s_instance = this;
+
 	m_window = std::unique_ptr<Window>(Window::Create());
 	m_window->SetEventCallback(BIND_EVENT(&KJ::Application::OnEvent, this));
 }
@@ -51,11 +56,13 @@ void KJ::Application::OnEvent(Event& event)
 void KJ::Application::PushLayer(Layer* layer)
 {
 	m_layerStack.PushLayer(layer);
+	layer->OnAttach();
 }
 
 void KJ::Application::PushOverlay(Layer* overlay)
 {
 	m_layerStack.PushOverlay(overlay);
+	overlay->OnAttach();
 }
 
 bool KJ::Application::OnWindowClose(WindowCloseEvent& event)

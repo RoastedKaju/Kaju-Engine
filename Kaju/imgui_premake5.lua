@@ -6,6 +6,7 @@ project "ImGui"
 	objdir("ThirdParty/ImGui/Intermediate/" .. outputdir .. "/%{prj.name}")
 
 	imguidir = "ThirdParty/ImGui"
+	glfwdir = "ThirdParty/GLFW"
 
 	files
 	{
@@ -18,7 +19,20 @@ project "ImGui"
 		"%{imguidir}/imstb_rectpack.h",
 		"%{imguidir}/imstb_textedit.h",
 		"%{imguidir}/imstb_truetype.h",
-		"%{imguidir}/imgui_demo.cpp"
+		"%{imguidir}/imgui_demo.cpp",
+		"%{imguidir}/imgui_tables.cpp",
+		"%{imguidir}/backends/imgui_impl_opengl3.h",
+		"%{imguidir}/backends/imgui_impl_opengl3.cpp",
+		"%{imguidir}/backends/imgui_impl_opengl3_loader.h",
+		"%{imguidir}/backends/imgui_impl_glfw.h",
+		"%{imguidir}/backends/imgui_impl_glfw.cpp"
+	}
+
+	includedirs
+	{
+		"%{imguidir}",              -- Core ImGui headers
+		"%{imguidir}/backends",      -- For backend headers like imgui_impl_glfw.h
+		"%{glfwdir}/include"
 	}
 
 	filter "system:windows"

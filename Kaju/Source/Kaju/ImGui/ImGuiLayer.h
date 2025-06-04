@@ -7,12 +7,15 @@ namespace KJ
 	class ImGuiLayer : public Layer
 	{
 	public:
-		ImGuiLayer();
-		~ImGuiLayer();
+		KAJU_API ImGuiLayer();
+		KAJU_API ~ImGuiLayer();
 
-		void OnAttach() override;
-		void OnDetach() override;
-		void OnUpdate() override;
-		void OnEvent(Event& event) override;
+		KAJU_API void OnAttach() override;
+		KAJU_API void OnDetach() override;
+		KAJU_API void OnUpdate() override;
+		KAJU_API void OnEvent(Event& event) override;
+
+	private:
+		float m_time = 0.0f;
 	};
 }
